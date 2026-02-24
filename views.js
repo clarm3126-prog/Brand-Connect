@@ -8,7 +8,7 @@ class ProductCategory extends HTMLElement {
         super();
         this.innerHTML = `
             <div class="card">
-                <img src="${this.getAttribute('image')}" alt="${this.getAttribute('name')}">
+                <img src="${this.getAttribute('image')}" alt="${this.getAttribute('name')}" loading="lazy">
                 <h3>${this.getAttribute('name')}</h3>
             </div>
         `;
@@ -43,7 +43,7 @@ class ProductCard extends HTMLElement {
             </style>
             <div class="card">
                 <div>
-                    <img src="${image}" alt="${name}">
+                    <img src="${image}" alt="${name}" loading="lazy">
                     <h3>${name}</h3>
                     <p>${description}</p>
                 </div>

@@ -14,6 +14,7 @@ A web application to showcase Naver Brand Connect products. Users can browse pro
 *   **Typography:** Expressive and readable fonts from Google Fonts.
 *   **Components:**
     *   **Header & Navigation:** Clean header with navigation, search, and external links.
+    *   **Hero Section:** A visually appealing hero section to welcome users.
     *   **Popular Products Section:** A dedicated section on the main page for featured products.
     *   **Cards:** Custom-styled cards for categories, products, and reviews with interactive elements like sharing.
     *   **Review System:** A user-friendly interface for reading and submitting product reviews.
@@ -33,24 +34,23 @@ A web application to showcase Naver Brand Connect products. Users can browse pro
 *   **Web Components:** Reusable UI elements for a modular and maintainable codebase.
 *   **ES Modules:** Modern JavaScript module system.
 *   **Firebase Integration:** Firestore for storing product and review data.
+*   **Performance Optimization:** Lazy loading for images and code splitting for faster initial page loads.
 
 ## Current Plan
 
-### Implement Partnership Inquiry Form
+### Website Design Improvement and Performance Optimization
 
-*   **Goal:** Add a form to the website to allow users to submit partnership inquiries, which will be sent to a Formspree endpoint.
-*   **Reasoning:** Providing a direct and easy-to-use contact method for potential partners is essential for business development and can open up new opportunities for collaboration and growth.
+*   **Goal:** Enhance the visual appeal of the website with a modern hero section and an improved design, while also optimizing performance for a faster user experience.
+*   **Reasoning:** A compelling design is crucial for engaging users and building a strong brand identity. Performance optimizations will reduce bounce rates and improve overall user satisfaction.
 
 *   **Steps:**
-    1.  **Update `blueprint.md`:** Document the plan for the new partnership form.
-    2.  **Update `index.html`:**
-        *   Add a "Partnership" link to the main navigation bar.
-        *   Create a new section in the `<body>` to house the partnership form.
-    3.  **Update `views.js`:**
-        *   Create a `renderPartnershipForm` function that dynamically generates the HTML for the inquiry form.
-        *   The form will be configured to `POST` to the specified Formspree URL (`https://formspree.io/f/xlgwabzz`).
-    4.  **Update `main.js`:**
-        *   Import the `renderPartnershipForm` function.
-        *   Add a new route (`#partnership`) to the `routes` object that calls the `renderPartnershipForm` function.
-    5.  **Update `style.css`:** Add styles for the partnership form section, including its input fields and submit button, to ensure it aligns with the site's overall design.
+    1.  **Correct `main.js` typo:** Fix the `popularProducts-section` variable name to prevent script errors.
+    2.  **Update `blueprint.md`:** Document the plan for the design and performance enhancements.
+    3.  **Update `index.html`:** Add a new `<section>` for the hero component.
+    4.  **Enhance `style.css`:**
+        *   Implement a modern and visually appealing design for the hero section.
+        *   Refine the overall color scheme, typography, and layout for a more professional look.
+    5.  **Optimize Performance:**
+        *   **Image Lazy Loading:** Add the `loading="lazy"` attribute to all `<img>` tags in `views.js` and `main.js` to defer offscreen image loading.
+        *   **Code Splitting:** Modify the router in `main.js` to use dynamic `import()` for on-demand loading of view modules.
     6.  **Commit and Push:** Save the changes to the Git repository.
