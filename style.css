@@ -1,1 +1,70 @@
-/* Add styles here */
+/* CSS - style.css */
+
+/* --- General & Root Styles --- */
+:root {
+    --primary-color: #4CAF50; /* Healthy Green */
+    --secondary-color: #FF9800; /* Energetic Orange */
+    --background-color: #F9F9F9;
+    --text-color: #333;
+    --card-background: #FFFFFF;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+    /* Add a subtle noise texture for a premium feel */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkwLjciIG9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=');
+}
+
+/* --- Header & Footer --- */
+header {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    color: #777;
+}
+
+/* --- Product Grid Layout --- */
+main {
+    padding: 2rem 1rem;
+}
+
+.product-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Base Styles for Web Component --- */
+/* These styles will be inherited or used as a template inside the component */
+product-card {
+    display: block; /* Ensure the custom element behaves like a block-level element */
+    width: 100%;
+}
