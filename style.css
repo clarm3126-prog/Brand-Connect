@@ -167,3 +167,42 @@ review-form {
     padding-top: 2rem;
     margin-top: 2rem;
 }
+
+/* --- Share Button & Social Icons --- */
+.share-button {
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.share-button:hover {
+    background-color: #e0e0e0;
+}
+
+.social-icons {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.social-icons a {
+    font-size: 1.5rem; 
+    color: #555; 
+    margin: 0 0.75rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #03c75a; 
+}
+
+/* Ensure FontAwesome icons are styled correctly inside Shadow DOM */
+.fab, .fas {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}

@@ -18,13 +18,69 @@ class ProductCategory extends HTMLElement {
 class ProductCard extends HTMLElement {
     constructor() {
         super();
-        this.innerHTML = `
+        this.attachShadow({ mode: 'open' });
+    }
+
+    connectedCallback() {
+        const name = this.getAttribute('name');
+        const description = this.getAttribute('description');
+        const image = this.getAttribute('image');
+        const productId = this.getAttribute('product-id');
+
+        this.shadowRoot.innerHTML = `
+            <style>
+                .card {
+                    background-color: white; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                    padding: 1.5rem; margin-bottom: 1rem; cursor: pointer; transition: all 0.3s ease;
+                    display: flex; flex-direction: column; justify-content: space-between;
+                }
+                .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+                h3 { margin-top: 0; color: #03c75a; font-size: 1.5rem; }
+                img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 1rem; }
+                .share-button { background: #eee; border: none; padding: 0.5rem; border-radius: 5px; cursor: pointer; }
+                .social-icons { display: none; margin-top: 1rem; } 
+                .social-icons a { margin-right: 0.5rem; color: #333; text-decoration: none; font-size: 1.2rem; }
+            </style>
             <div class="card">
-                <img src="${this.getAttribute('image')}" alt="${this.getAttribute('name')}">
-                <h3>${this.getAttribute('name')}</h3>
-                <p>${this.getAttribute('description')}</p>
+                <div>
+                    <img src="${image}" alt="${name}">
+                    <h3>${name}</h3>
+                    <p>${description}</p>
+                </div>
+                <div>
+                    <button class="share-button">Share</button>
+                    <div class="social-icons">
+                        <a href="#" class="share-fb"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="share-tw"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="copy-link"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
             </div>
         `;
+
+        const card = this.shadowRoot.querySelector('.card');
+        card.addEventListener('click', (e) => {
+            // Prevent card click from triggering when clicking share buttons
+            if (!e.target.closest('.share-button') && !e.target.closest('.social-icons')) {
+                window.location.hash = `#reviews?productId=${productId}`;
+            }
+        });
+
+        const shareButton = this.shadowRoot.querySelector('.share-button');
+        const socialIcons = this.shadowRoot.querySelector('.social-icons');
+        shareButton.addEventListener('click', () => {
+            socialIcons.style.display = socialIcons.style.display === 'block' ? 'none' : 'block';
+        });
+
+        const productUrl = `${window.location.origin}#reviews?productId=${productId}`;
+        const shareText = `Check out this product: ${name}`;
+
+        this.shadowRoot.querySelector('.share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productUrl)}`;
+        this.shadowRoot.querySelector('.share-tw').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(productUrl)}&text=${encodeURIComponent(shareText)}`;
+        this.shadowRoot.querySelector('.copy-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText(productUrl).then(() => alert('Link copied to clipboard!'));
+        });
     }
 }
 
@@ -218,9 +274,7 @@ export async function renderProducts(searchTerm = '') {
         el.setAttribute('name', product.name);
         el.setAttribute('description', product.description);
         el.setAttribute('image', product.image);
-        el.addEventListener('click', () => {
-            window.location.hash = `#reviews?productId=${product.id}`
-        })
+        el.setAttribute('product-id', product.id);
         appRoot.appendChild(el);
     });
 }

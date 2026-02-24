@@ -3,7 +3,7 @@
 
 ## Overview
 
-A web application to showcase Naver Brand Connect products. Users can browse product categories, view products, read and write reviews, and discover popular items. 
+A web application to showcase Naver Brand Connect products. Users can browse product categories, view products, read and write reviews, share products on social media, and discover popular items.
 
 ## Project Outline
 
@@ -15,8 +15,9 @@ A web application to showcase Naver Brand Connect products. Users can browse pro
 *   **Components:**
     *   **Header & Navigation:** Clean header with navigation, search, and external links.
     *   **Popular Products Section:** A dedicated section on the main page for featured products.
-    *   **Cards:** Custom-styled cards for categories, products, and reviews.
-    *   **Review System:** A user-friendly interface for reading and submitting product reviews, including a rating system.
+    *   **Cards:** Custom-styled cards for categories, products, and reviews with interactive elements like sharing.
+    *   **Review System:** A user-friendly interface for reading and submitting product reviews.
+    *   **Social Sharing:** Intuitive icons for sharing products on major social platforms.
     *   **Footer:** Contains copyright information.
 *   **Effects:** Subtle animations and transitions for an interactive experience.
 
@@ -25,26 +26,26 @@ A web application to showcase Naver Brand Connect products. Users can browse pro
 *   **Product Categories & Listings:** Browse products by category.
 *   **Search:** Filter products by name.
 *   **Popular Products Showcase:** A curated list of popular items.
-*   **User Reviews and Ratings:** Users can read and submit reviews and ratings for each product. This builds trust and provides valuable user-generated content.
+*   **User Reviews and Ratings:** Read and submit reviews and ratings for each product.
+*   **Social Media Sharing:** Share products easily on platforms like Facebook, Twitter, or by copying a direct link. This encourages organic marketing and drives new traffic.
 *   **Web Components:** Reusable UI elements for a modular and maintainable codebase.
 *   **ES Modules:** Modern JavaScript module system.
-*   **Firebase Integration:** Firestore for storing product data and user reviews.
+*   **Firebase Integration:** Firestore for storing product and review data.
 
 ## Current Plan
 
-### Implement User Reviews and Ratings Feature
+### Implement Social Media Sharing Feature
 
-*   **Goal:** Allow users to submit reviews and ratings for products and view existing reviews.
-*   **Reasoning:** This is a crucial feature for e-commerce sites as it builds social proof and helps users make informed decisions, which can significantly increase visitor engagement and trust.
+*   **Goal:** Allow users to share products via Facebook, Twitter, or by copying a direct link.
+*   **Reasoning:** Adding social sharing buttons is a low-effort, high-impact way to increase the site's visibility and attract new users through word-of-mouth marketing.
 
 *   **Steps:**
-    1.  **Update `blueprint.md`:** Document the plan for the new review feature.
-    2.  **Update `views.js`:**
-        *   Create a `product-review` web component to display an individual review, including the user's name, rating, and comments.
-        *   Create a `review-form` web component that provides a form for users to submit a new review and a star rating.
-        *   Add mock review data to be used for initial rendering.
-        *   Modify the `renderReviews` function to display both the list of reviews and the submission form.
-    3.  **Update `main.js`:** Adjust the routing logic to correctly handle the display of the reviews section, ensuring it appears when the "Reviews" navigation link is clicked.
-    4.  **Update `style.css`:** Add new styles for the review list, individual reviews, the rating stars, and the review submission form to ensure they are visually appealing and consistent with the site's design.
-    5.  **Commit and Push:** Save the changes to the Git repository.
-
+    1.  **Update `blueprint.md`:** Document the plan for the social sharing feature.
+    2.  **Add Font Awesome (`index.html`):** Integrate the Font Awesome library to use its social media icons.
+    3.  **Update `views.js` (`ProductCard`):**
+        *   Add a "Share" button and a hidden container for social media icons within the `ProductCard` web component.
+        *   Implement the logic to toggle the visibility of the icon container when the share button is clicked.
+        *   Add event listeners to the icons for Facebook, Twitter, and "copy link" actions, generating the appropriate share URLs.
+    4.  **Update `main.js` (`PopularProductCard`):** Replicate the same sharing functionality in the `PopularProductCard` component.
+    5.  **Update `style.css`:** Add styles for the share button and the social icon container to ensure they are visually appealing and user-friendly.
+    6.  **Commit and Push:** Save all changes to the Git repository.
