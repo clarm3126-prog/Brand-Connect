@@ -1,3 +1,5 @@
+import { products } from './products.js';
+
 async function router() {
     const path = window.location.hash.split('?')[0] || '#categories';
     const popularProductsSection = document.getElementById('popular-products-section');
@@ -136,18 +138,13 @@ customElements.define('popular-product-card', PopularProductCard);
 function renderPopularProducts() {
     const popularProductsGrid = document.getElementById('popular-products-grid');
     popularProductsGrid.innerHTML = '';
-    const popularProducts = [
-        { id: 'p1', name: 'Stylish T-Shirt', image: 'https://via.placeholder.com/300x200.png?text=Stylish+T-Shirt', price: '₩25,000', link: '#' },
-        { id: 'p2', name: 'Modern Backpack', image: 'https://via.placeholder.com/300x200.png?text=Modern+Backpack', price: '₩78,000', link: '#' },
-        { id: 'p3', name: 'Wireless Headphones', image: 'https://via.placeholder.com/300x200.png?text=Wireless+Headphones', price: '₩150,000', link: '#' }
-    ];
-    popularProducts.forEach(product => {
+    products.forEach(product => {
         const productCard = document.createElement('popular-product-card');
         productCard.setAttribute('product-id', product.id);
         productCard.setAttribute('name', product.name);
-        productCard.setAttribute('image', product.image);
+        productCard.setAttribute('image', product.imageUrl);
         productCard.setAttribute('price', product.price);
-        productCard.setAttribute('link', product.link);
+        productCard.setAttribute('link', product.productUrl);
         popularProductsGrid.appendChild(productCard);
     });
 }
