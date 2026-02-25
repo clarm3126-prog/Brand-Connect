@@ -1,259 +1,198 @@
-/* General Styles */
-:root {
-    --primary-color: #03c75a;
-    --primary-dark: #02b04e;
-    --text-dark: #212529;
-    --text-light: #6c757d;
-    --background-light: #f8f9fa;
-    --white: #fff;
-    --shadow: 0 4px 8px rgba(0,0,0,0.1);
-    --shadow-hover: 0 8px 16px rgba(0,0,0,0.2);
-}
-
+/* General Body Styles */
 body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
-    background-color: var(--background-light);
-    color: var(--text-dark);
+    background-color: #f4f6f9;
+    color: #333;
 }
 
-/* Header */
+/* Header Styles */
 header {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 1.5rem 2rem;
+    background-color: #fff;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: var(--shadow);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-.search-container {
-    width: 300px;
-}
-
-#search-bar {
-    width: 100%;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-/* Hero Section */
-#hero-section {
-    background: url('https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600') no-repeat center center/cover;
-    color: var(--white);
-    text-align: center;
-    padding: 6rem 2rem;
-    position: relative;
-}
-
-#hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero-content h2 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin: 0 0 1rem 0;
-}
-
-.hero-content p {
-    font-size: 1.25rem;
-    margin: 0 0 2rem 0;
-}
-
-.cta-button {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-3px);
-}
-
-
-/* Navigation */
-nav {
-    background-color: var(--white);
-    padding: 1.2rem;
-    text-align: center;
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid #ddd;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-nav a {
-    margin: 0 1.5rem;
+header h1 {
+    margin: 0;
+    color: #007bff;
+    font-size: 1.8rem;
+}
+
+header nav a {
+    margin: 0 20px;
     text-decoration: none;
-    color: var(--primary-color);
+    color: #555;
     font-weight: bold;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+    transition: color 0.2s;
 }
 
-nav a:hover {
-    color: var(--primary-dark);
+header nav a:hover {
+    color: #007bff;
 }
 
-/* Sections */
-#popular-products-section, main {
-    padding: 4rem 2rem;
+.search-container {
+    position: relative;
 }
 
-#popular-products-section h2 {
-    font-size: 2.8rem;
-    color: var(--text-dark);
+#search-bar {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    min-width: 250px;
+    transition: border-color 0.2s;
+}
+
+#search-bar:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Hero Section */
+#hero-section {
+    background: linear-gradient(to right, #007bff, #0056b3);
+    color: white;
     text-align: center;
-    margin-bottom: 3rem;
+    padding: 80px 20px;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+.hero-content h2 {
+    font-size: 2.8rem;
+    margin: 0 0 20px;
 }
 
-/* Main Content */
-#app-root[style*="display: grid"] {
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Main Content Area */
+.app-root {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Titles */
+section h2 {
+    font-size: 2.2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Category Grid */
+.category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.category-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.category-card h3 {
+    margin: 15px;
+    font-size: 1.1rem;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* This style will be applied inside the Shadow DOM of popular-product-card */
+/* We keep a copy here for reference, but the component encapsulates its own style. */
+/* popular-product-card { ... } is not a standard selector. */
+
+
+/* Partnership Form Section */
+.partnership-content {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 800px;
+    margin: 40px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.partnership-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 20px auto 0;
+}
+
+.partnership-form input, .partnership-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.cta-button {
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #218838;
+}
+
+/* Review Section */
+.review-section {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.review-section a {
+    color: #007bff;
+    text-decoration: none;
 }
 
 /* Footer */
 footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
     background-color: #343a40;
-    color: var(--white);
-    padding: 2rem;
-    text-align: center;
-}
-
-/* Card Styles */
-.card {
-    background-color: var(--white);
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
-.card h3 {
-    margin-top: 0;
-    color: var(--primary-color);
-    font-size: 1.5rem;
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
-
-
-/* --- Review Section Styles -- */
-.reviews-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: var(--white);
-    border-radius: 15px;
-}
-
-product-review, review-form {
-    display: block;
-    margin-bottom: 1.5rem;
-}
-
-/* --- Partnership Form Styles --- */
-.partnership-form-container {
-    max-width: 400px;
-    margin: 2rem auto;
-    padding: 1rem 1.5rem;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-/* Partnership Inquiry Section */
-#partnership-inquiry {
-    background-color: var(--background-light);
-    padding: 3rem 2rem;
-    text-align: center;
-}
-
-#partnership-inquiry h2 {
-    font-size: 2rem;
-    color: var(--text-dark);
-    margin-bottom: 1rem;
-}
-
-#partnership-inquiry p {
-    font-size: 1rem;
-    color: var(--text-light);
-    margin-bottom: 2rem;
-}
-
-#partnership-form input,
-#partnership-form textarea {
-    width: 100%;
-    padding: 0.6rem;
-    margin-bottom: 1rem;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
-#partnership-form textarea {
-    resize: vertical;
-}
-
-#partnership-form button {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 50px;
-    border: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* FontAwesome Icons */
-.fab, .fas {
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
+    color: white;
 }
