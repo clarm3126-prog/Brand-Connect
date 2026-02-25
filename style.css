@@ -208,6 +208,50 @@ product-review, review-form {
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
+/* Partnership Inquiry Section */
+#partnership-inquiry {
+    background-color: var(--background-light);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#partnership-inquiry h2 {
+    font-size: 2.8rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+#partnership-inquiry p {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+}
+
+#partnership-form input,
+#partnership-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#partnership-form textarea {
+    resize: vertical;
+}
+
+#partnership-form button {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 /* FontAwesome Icons */
 .fab, .fas {
     font-family: 'Font Awesome 6 Free';
