@@ -37,19 +37,19 @@ export const products = [
     },
     {
         "id": 5,
-        "name": "오쏘몰 이뮨 멀티비타민",
-        "brand": "오쏘몰",
-        "price": "₩38,000",
-        "imageUrl": "https://thumbnail.alicdn.com/mc/28243469415/20240709140905/3.2.1.2_160_160_Q100.jpg",
+        "name": "가그린 제로 블라스트 750ml x 3개",
+        "brand": "가그린",
+        "price": "₩15,900",
+        "imageUrl": "https://images.unsplash.com/photo-1627042599222-b586334aefe1?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
         "productUrl": "https://naver.me/G7NQZ430",
         "categoryId": "life-health"
     },
     {
         "id": 6,
-        "name": "[리뉴얼] 뉴트리코어 WCS 락토페린",
-        "brand": "뉴트리코어",
-        "price": "₩49,900",
-        "imageUrl": "https://thumbnail.alicdn.com/mc/28243469415/20240709140905/3.2.1.1_160_160_Q100.jpg",
+        "name": "스마트 자동 센서 기저귀 쓰레기통 20L",
+        "brand": "스마트센서",
+        "price": "₩59,900",
+        "imageUrl": "https://images.unsplash.com/photo-1599879482498-03b2a59c0496?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
         "productUrl": "https://naver.me/F8lxbIYq",
         "categoryId": "life-health"
     }
