@@ -8,4 +8,4 @@ export const categories = [
     { id: 'leisure-convenience', name: '여가/생활편의', imageUrl: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600' },
     { id: 'life-health', name: '생활/건강', imageUrl: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600' },
     { id: 'childbirth-parenting', name: '출산/육아', imageUrl: 'https://images.unsplash.com/photo-1519689689268-1a99a77e966e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600' }
-];
+]; // Forcing a change to clear cache.
