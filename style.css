@@ -1,277 +1,78 @@
-/* General Body Styles */
 body {
-    font-family: 'Noto Sans KR', sans-serif;
-    margin: 0;
-    background-color: #f4f6f9;
+    font-family: sans-serif;
+    background-color: #f0f2f5;
     color: #333;
-}
-
-/* Header Styles */
-header {
-    background-color: #fff;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-header h1 {
     margin: 0;
-    color: #007bff;
-    font-size: 1.8rem;
-}
-
-header nav a {
-    margin: 0 20px;
-    text-decoration: none;
-    color: #555;
-    font-weight: bold;
-    transition: color 0.2s;
-}
-
-header nav a:hover {
-    color: #007bff;
-}
-
-.search-container {
-    position: relative;
-}
-
-#search-bar {
-    padding: 10px 15px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    min-width: 250px;
-    transition: border-color 0.2s;
-}
-
-#search-bar:focus {
-    outline: none;
-    border-color: #007bff;
-}
-
-/* Hero Section */
-#hero-section {
-    background: linear-gradient(to right, #007bff, #0056b3);
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
-}
-
-.hero-content h2 {
-    font-size: 2.8rem;
-    margin: 0 0 20px;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Main Content Area */
-.app-root {
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Section Titles */
-section h2 {
-    font-size: 2.2rem;
-    color: #333;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-/* Category Grid */
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 30px;
-}
-
-.category-card {
-    background-color: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.category-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
-
-.category-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.category-card h3 {
-    margin: 15px;
-    font-size: 1.1rem;
-}
-
-/* Product Grid */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-/* Partnership Form Section */
-.partnership-content {
-    background-color: #fff;
-    padding: 50px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 800px;
-    margin: 40px auto;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.partnership-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
-    margin: 20px auto 0;
-}
-
-.partnership-form input, .partnership-form textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-.cta-button {
-    background-color: #28a745;
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: background-color 0.2s;
-}
-
-.cta-button:hover {
-    background-color: #218838;
-}
-
-/* Review Section */
-.review-section {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 12px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-.review-section a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 30px;
-    margin-top: 40px;
-    background-color: #343a40;
-    color: white;
-}
-
-/* Product Detail Modal */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    min-height: 100vh;
 }
 
-.modal-content {
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
+.container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
     width: 90%;
-    max-width: 800px;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.close-button {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #888;
-    cursor: pointer;
-    transition: color 0.2s;
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
 }
 
-.close-button:hover {
-    color: #333;
+p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 30px;
 }
 
-#modal-product-name {
-    margin-top: 0;
-    font-size: 2rem;
-    color: #007bff;
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
-#modal-image-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin: 25px 0;
+#product-link {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
 }
 
-#modal-image-gallery img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-#modal-product-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #555;
-}
-
-.buy-button {
-    display: inline-block;
+#analyze-button {
+    padding: 12px 20px;
     background-color: #007bff;
     color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: bold;
+    border: none;
     border-radius: 8px;
-    margin-top: 20px;
-    transition: background-color 0.2s, transform 0.2s;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.buy-button:hover {
+#analyze-button:hover {
     background-color: #0056b3;
-    transform: scale(1.05);
+}
+
+#summary-container {
+    text-align: left;
+}
+
+disadvantage-summary ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+disadvantage-summary li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid #dc3545;
 }

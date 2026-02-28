@@ -1,59 +1,34 @@
 
-# Naver Brand Connect Product Showcase
+# 쿠팡 상품 단점 요약 웹사이트
 
-## Overview
+## 1. 개요
 
-A web application to showcase Naver Brand Connect products. Users can browse product categories, view products, see detailed product information within the app, engage in discussions via Disqus, share products on social media, discover popular items, and submit partnership inquiries.
+이 웹사이트는 사용자가 쿠팡 상품 링크를 입력하면 해당 상품의 부정적인 리뷰(1~2점)를 AI가 분석하여 단점을 요약해주는 서비스입니다. 이를 통해 사용자는 구매 결정에 앞서 상품의 단점을 명확하게 파악하고 현명한 소비를 할 수 있도록 돕습니다.
 
-## Project Outline
+## 2. 기능
 
-### Design and Styling
+- **쿠팡 링크 입력:** 사용자는 텍스트 입력 필드에 쿠팡 상품 링크를 붙여넣을 수 있습니다.
+- **단점 분석 요청:** 사용자는 '분석하기' 버튼을 클릭하여 AI에게 단점 요약을 요청합니다.
+- **단점 요약 결과 표시:** AI가 분석한 상품의 단점 요약이 화면에 표시됩니다.
+- **현대적인 UI/UX:** 웹 컴포넌트를 활용하여 사용자 친화적이고 재사용 가능한 UI를 구축합니다.
 
-*   **Layout:** A modern, responsive single-page application layout.
-*   **Colors:** A vibrant and energetic color palette inspired by Naver's branding.
-*   **Typography:** Expressive and readable fonts from Google Fonts.
-*   **Components:**
-    *   **Header & Navigation:** Clean header with navigation, search, and external links.
-    *   **Hero Section:** A visually appealing hero section to welcome users.
-    *   **Popular Products Section:** A dedicated section on the main page for featured products.
-    *   **Cards:** Custom-styled cards for categories and products with interactive elements like sharing.
-    *   **Product Detail Modal:** A modal window to display detailed product information, including a gallery of images and a full description, without leaving the site.
-    *   **Disqus Integration:** A robust commenting system powered by Disqus for user discussions.
-    *   **Social Sharing:** Intuitive icons for sharing products on major social platforms.
-    *   **Partnership Form:** A dedicated form for users to submit partnership inquiries via Formspree.
-    *   **Footer:** Contains copyright information.
-*   **Effects:** Subtle animations and transitions for an interactive experience.
+## 3. 디자인
 
-### Features
+- **레이아웃:** 중앙 정렬된 깔끔하고 미니멀한 레이아웃
+- **색상:** 흰색과 회색을 기본으로 하고, 주요 상호작용 요소에는 강조 색상을 사용합니다.
+- **글꼴:** 가독성이 좋은 sans-serif 글꼴을 사용합니다.
+- **입력 필드:** 사용자가 링크를 쉽게 붙여넣을 수 있도록 명확한 레이블과 함께 디자인합니다.
+- **버튼:** 사용자가 쉽게 누를 수 있도록 눈에 띄는 디자인을 적용합니다.
+- **결과 표시:** 분석된 단점 요약은 명확하고 읽기 쉽게 표시됩니다.
 
-*   **Product Categories & Listings:** Browse products by category.
-*   **Product Detail View:** View detailed product descriptions and image galleries in a modal window.
-*   **Search:** Filter products by name.
-*   **Popular Products Showcase:** A curated list of popular items.
-*   **Disqus for Comments:** Replaced the native review system with Disqus to facilitate richer user discussions and community engagement.
-*   **Social Media Sharing:** Share products easily on platforms like Facebook, Twitter, or by copying a direct link.
-*   **Partnership Inquiry Form:** A simple and effective form that allows businesses or individuals to express interest in a partnership, with submissions managed through Formspree.
-*   **Web Components:** Reusable UI elements for a modular and maintainable codebase.
-*   **ES Modules:** Modern JavaScript module system.
-*   **Firebase Integration:** Firestore for storing product and category data.
-*   **Performance Optimization:** Lazy loading for images and code splitting for faster initial page loads.
+## 4. 기술 스택
 
-## Current Plan
+- **프론트엔드:** HTML, CSS, JavaScript (웹 컴포넌트 활용)
+- **AI:** (시뮬레이션됨) 실제로는 웹 스크레이핑 및 자연어 처리 모델이 필요합니다.
 
-### Task Summary: Implement In-App Product Detail View
+## 5. 개발 계획
 
-*   **Goal:** Instead of redirecting to an external link, display product details (description and images) in a modal window when a user clicks on a product.
-*   **Reasoning:** To enhance the user experience by keeping users within the application and providing a seamless way to view product information.
-*   **Status:** **In Progress**.
-
-*   **Steps:**
-    1.  **Extract Content:** Manually gather product descriptions and image URLs from the 'Gagarin Zero Blast' Naver Shopping page.
-    2.  **Update `products.js`:** Add the extracted detailed information (description text, an array of detail images) to the Gagarin product object.
-    3.  **Create Product Detail Modal UI:**
-        *   Modify `index.html` to include the HTML structure for a modal dialog.
-        *   Update `style.css` to add styles for the modal overlay, content, image gallery, and close button.
-    4.  **Implement Modal Logic:**
-        *   In `main.js`, create functions to show/hide the modal.
-        *   Create a function to dynamically populate the modal with the selected product's details (name, description, images).
-        *   Update the event listener on product cards to trigger the modal instead of opening an external link.
-    5.  **Deploy:** Commit and push all changes to the repository to deploy the new feature.
+1. **HTML 구조 설계:** `index.html` 파일에 기본 HTML 구조를 작성합니다.
+2. **CSS 스타일링:** `style.css` 파일에 웹사이트의 디자인을 적용합니다.
+3. **JavaScript 로직 구현:** `main.js` 파일에 사용자 상호작용 및 AI 분석 로직(시뮬레이션)을 작성합니다.
+4. **웹 컴포넌트 생성:** 단점 요약 결과를 표시할 `<disadvantage-summary>` 웹 컴포넌트를 만듭니다.

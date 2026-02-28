@@ -1,118 +1,76 @@
-import { renderCategories, renderProducts, renderReviews, renderPartnershipForm, getProductById } from './views.js';
 
-const searchBar = document.getElementById('search-bar');
-const modal = document.getElementById('product-detail-modal');
-const closeModalButton = document.querySelector('.close-button');
+class DisadvantageSummary extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
 
-// --- Modal Logic ---
+  connectedCallback() {
+    const disadvantages = JSON.parse(this.getAttribute('data-disadvantages'));
+    const summaryTitle = this.getAttribute('summary-title');
 
-// Function to open the modal and populate it with product data
-function showProductDetail(product) {
-    if (!product) return;
+    const style = document.createElement('style');
+    style.textContent = `
+      h2 {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 15px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border-left: 4px solid #dc3545;
+        font-size: 1.1em;
+      }
+    `;
 
-    document.getElementById('modal-product-name').textContent = product.name;
-    document.getElementById('modal-product-description').textContent = product.description;
-    
-    const gallery = document.getElementById('modal-image-gallery');
-    gallery.innerHTML = ''; // Clear previous images
-    if (product.detailImages && product.detailImages.length > 0) {
-        product.detailImages.forEach(imgUrl => {
-            const img = document.createElement('img');
-            img.src = imgUrl;
-            img.alt = product.name;
-            gallery.appendChild(img);
-        });
-    } else {
-        // If no detail images, show the main product image
-        const img = document.createElement('img');
-        img.src = product.imageUrl;
-        img.alt = product.name;
-        gallery.appendChild(img);
-    }
+    const wrapper = document.createElement('div');
+    const title = document.createElement('h2');
+    title.textContent = summaryTitle;
+    wrapper.appendChild(title);
 
-    const buyButton = document.getElementById('modal-product-link');
-    if (product.productUrl) {
-        buyButton.href = product.productUrl;
-        buyButton.style.display = 'inline-block';
-    } else {
-        buyButton.style.display = 'none';
-    }
+    const list = document.createElement('ul');
+    disadvantages.forEach(item => {
+      const listItem = document.createElement('li');
+      listItem.textContent = item;
+      list.appendChild(listItem);
+    });
+    wrapper.appendChild(list);
 
-    modal.style.display = 'flex';
+    this.shadowRoot.append(style, wrapper);
+  }
 }
 
-// Function to close the modal
-function closeProductDetail() {
-    modal.style.display = 'none';
-}
+customElements.define('disadvantage-summary', DisadvantageSummary);
 
-// Event listener for the close button
-closeModalButton.addEventListener('click', closeProductDetail);
+document.getElementById('analyze-button').addEventListener('click', () => {
+  const productLink = document.getElementById('product-link').value;
+  if (productLink.trim() === '') {
+    alert('쿠팡 상품 링크를 입력해주세요.');
+    return;
+  }
 
-// Event listener to close the modal when clicking the overlay
-window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-        closeProductDetail();
-    }
-});
+  // AI 분석 시뮬레이션
+  const dummyDisadvantages = [
+    '배터리가 너무 빨리 닳아요.',
+    '생각보다 크기가 작아서 실망했어요.',
+    '마감이 부실하고, 곳곳에 흠집이 있네요.',
+    '배송이 너무 느렸어요.',
+    '가격에 비해 성능이 아쉬워요.',
+  ];
 
-// Event delegation for product clicks
-document.getElementById('app-root').addEventListener('click', async (event) => {
-    const productCard = event.target.closest('popular-product-card');
-    if (productCard) {
-        const productId = productCard.dataset.productId;
-        if (productId) {
-            // Fetch the full product object using the ID
-            const product = await getProductById(parseInt(productId, 10));
-            showProductDetail(product);
-        }
-    }
-});
+  const summaryContainer = document.getElementById('summary-container');
+  summaryContainer.innerHTML = ''; // 이전 결과 삭제
 
-// --- Routing Logic ---
+  const summaryElement = document.createElement('disadvantage-summary');
+  summaryElement.setAttribute('summary-title', 'AI가 분석한 주요 단점');
+  summaryElement.setAttribute('data-disadvantages', JSON.stringify(dummyDisadvantages));
 
-function router() {
-    const hash = window.location.hash;
-    const [path] = hash.split('?');
-
-    switch (path) {
-        case '#products':
-            renderProducts();
-            break;
-        case '#reviews':
-            renderReviews(); // Note: This might be deprecated if using modal for details
-            break;
-        case '#partnership':
-             renderPartnershipForm();
-            break;
-        case '#categories':
-        default:
-            renderCategories();
-            break;
-    }
-}
-
-// --- Event Listeners ---
-
-// Handle search input
-searchBar.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        const searchTerm = searchBar.value.trim();
-        if (searchTerm) {
-            window.location.hash = `#products?search=${encodeURIComponent(searchTerm)}`;
-        } else {
-            window.location.hash = '#products';
-        }
-    }
-});
-
-// Listen for hash changes to navigate
-window.addEventListener('hashchange', router);
-
-// Initial load
-window.addEventListener('load', () => {
-    if (!window.location.hash) {
-        window.location.hash = '#categories';
-    }
-    router();
+  summaryContainer.appendChild(summaryElement);
 });

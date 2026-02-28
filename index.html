@@ -3,44 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>네이버 브랜드 커넥트 쇼케이스</title>
+    <title>쿠팡 상품 단점 요약</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1><a href="#categories" style="text-decoration: none; color: inherit;">네이버 브랜드 커넥트</a></h1>
-        <nav>
-            <a href="#categories">카테고리</a>
-            <a href="#partnership">파트너십 문의</a>
-        </nav>
-        <div class="search-container">
-            <input type="text" id="search-bar" placeholder="제품 검색...">
+    <div class="container">
+        <h1>이 제품 사기 전 꼭 봐야 할 단점</h1>
+        <p>쿠팡 상품 링크를 붙여넣으면 AI가 단점을 요약해줘요.</p>
+        <div class="input-container">
+            <input type="text" id="product-link" placeholder="쿠팡 상품 링크를 여기에 붙여넣으세요.">
+            <button id="analyze-button">분석하기</button>
         </div>
-    </header>
-
-    <main id="app-root" class="app-root"></main>
-
-    <div id="product-detail-modal" class="modal-overlay" style="display: none;">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2 id="modal-product-name"></h2>
-            <div id="modal-image-gallery"></div>
-            <p id="modal-product-description"></p>
-            <a id="modal-product-link" href="#" target="_blank" class="buy-button">구매하러 가기</a>
-        </div>
+        <div id="summary-container"></div>
     </div>
-
-    <footer>
-        <p>&copy; 2024 네이버 브랜드 커넥트</p>
-    </footer>
-
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-    <script type="module" src="firebase.js"></script>
-    <script type="module" src="popular-product-card.js"></script>
-    <script type="module" src="main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
